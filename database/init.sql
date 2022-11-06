@@ -1,0 +1,2 @@
+CREATE TABLE job (jobID INT NOT NULL, ownership_job INT NOT NULL, status_job INT NOT NULL, place INT NOT NULL, start_time INT NOT NULL, end_time INT NOT NULL);
+CREATE TABLE link (jobID INT NOT NULL, count INT NOT NULL, first_link VARCHAR(255) NOT NULL, second VARCHAR(255) NOT NULL, third VARCHAR(255) NOT NULL, fourth VARCHAR(255) NOT NULL);

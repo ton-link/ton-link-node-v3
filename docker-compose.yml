@@ -1,0 +1,27 @@
+version: "1.0"
+services:
+  node:
+    image: node:latest
+    container_name: ton-link-node
+    build:
+      context: client
+    depends_on:
+      - postgres
+  apache:
+    image: httpd:latest
+    container_name: ton-link-dashboard
+    ports:
+      - '8080:80'
+    volumes:
+      - ./dashboard:/var/www/html
+  postgres:
+    image: postgres:latest
+    container_name: ton-link-database
+    environment:
+      POSTGRES_DB: "tonlink_db"
+      POSTGRES_USER: "tonlink"
+      POSTGRES_PASSWORD: "password"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
