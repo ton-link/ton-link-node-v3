@@ -4,7 +4,7 @@
 <div align="center">
 
 
-<b><b>Ton-link</b></b> allows smart contracts to access data outside of the network while maintaining data security.
+<b><b>Ton-link</b></b> allows smart contracts to access data outside of the blockchain while maintaining data security.
 </div>
 
 ## Info
