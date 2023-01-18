@@ -195,7 +195,7 @@ async function send(wallet, body, keyPair) {
         await wallet.methods.transfer({
                 secretKey: keyPair.secretKey,
                 toAddress: (process.env).ORACLEADDRESS,
-                amount: TonWeb.utils.toNano("0.15"),
+                amount: TonWeb.utils.toNano("0.05"),
                 seqno: seqno,
                 payload: body,
                 sendMode: 3
