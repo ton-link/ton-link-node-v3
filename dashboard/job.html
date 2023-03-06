@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.0/web3.min.js"></script>
     <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
     <script type="text/javascript" src="tonweb.js"></script>
+    <script type="text/javascript" src="var.env"></script>
     <style>
         html,
         body {
@@ -43,7 +44,7 @@
 
 <body>
     <div style="margin-left: 50px; color: blue; vertical-align: middle;">
-        <img src="./Ton-link explorer.png" style="margin-top: 5px; width: 260px; height: 50px;">
+        <img src="./tle-logo.png" style="margin-top: 5px; width: 260px; height: 50px;">
         <Br>
     </div>
     <hr>
@@ -61,7 +62,7 @@
         const Cell = TonWeb.boc.Cell;
         const Address = TonWeb.utils.Address;
         async function getJobById(tonweb, jobID) {
-            const result = await tonweb.provider.call2("EQBBSPPHESPQQxD3uWUrYKw_oQPiNJZN2bTjEI8qSKqthQmZ", 'get_job_by_jobid', [['num', jobID]]);
+            const result = await tonweb.provider.call2(ORACLEADDRESS, 'get_job_by_jobid', [['num', jobID]]);
             return result;
         }
         const parseUri = (bytes) => {
@@ -148,7 +149,7 @@
 
         }
         async function main() {
-            var tonweb = new TonWeb(new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC", { apiKey: "b8d6d1a66f8a3940f24c01054b5a7c7875c7a152b7f92813b3b3242fa940783e" }));
+            var tonweb = new TonWeb(new TonWeb.HttpProvider(TON_API_URL, { apiKey: TONCENTERKEY }));
 
             function scoreGame() {
                 var score = decodeURIComponent(location.search.substr(1)).split('&');

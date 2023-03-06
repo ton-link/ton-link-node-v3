@@ -13,7 +13,7 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ./dashboard:/var/www/html
+      - ./dashboard:/usr/local/apache2/htdocs
   postgres:
     image: postgres:latest
     container_name: ton-link-database
