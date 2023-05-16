@@ -1,0 +1,16 @@
+.Box {
+    padding: 24px;
+    background: #151515;
+    border: 2px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    max-width: 479px;
+    min-width: 479px;
+  }
+  
+  .Box__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  

@@ -1,0 +1,156 @@
+@import url(./fonts.css);
+@import url(./normalize.css);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: url(./img/background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-size: contain;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main .logo {
+  margin-bottom: 24px;
+  width: 80px;
+  height: 80px;
+}
+
+.QRBox {
+  background: #fff;
+  padding: 12px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.QRBox img {
+  width: 200px;
+  height: 200px;
+}
+
+.dashboard {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 80px;
+}
+
+header .user {
+  display: flex;
+  align-items: center;
+}
+
+header .user .address {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16x;
+  line-height: 18px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+  margin-right: 12px;
+}
+
+.content {
+  width: 100%;
+  padding: 12px 80px;
+  display: flex;
+}
+
+.content .left {
+  width: 20%;
+}
+
+.content .right {
+  width: 80%;
+  background: #151515;
+  border: 1px solid rgba(166, 166, 166, 0.2);
+  border-radius: 16px;
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  padding: 24px;
+}
+
+.action-buttons {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.explorer {
+  background: #151515;
+  border: 1px solid rgba(166, 166, 166, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  padding: 24px;
+  margin: 12px 80px;
+}
+
+.explorer .input {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.explorer textarea {
+  height: 200px;
+  width: 60%;
+  background: #000000;
+  border-radius: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+  padding: 12px;
+  outline: none;
+  border: none;
+}
+
+.explorer textarea::-webkit-scrollbar {
+  width: 0;
+}
