@@ -13,8 +13,8 @@ import exit from "../assets/img/exit.svg";
 import Modal from "../components/Modal/Modal";
 import Box from "../components/Box/Box";
 import QRCode from "react-qr-code";
-import {API_LINK} from "../const";
-
+import env from "react-dotenv";
+console.log(env)
 const Main = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -57,13 +57,13 @@ const Main = () => {
     const info = await req.json();
 
     let addrBase64 = await fetch(
-      `${API_LINK}/api/formatAddress?address=${localStorage.getItem("address")}`
+      `${env.API_LINK}/api/formatAddress?address=${localStorage.getItem("address")}`
     );
     addrBase64 = await addrBase64.json()
 
-    console.log(`${API_LINK}/api/getOperator?address=${addrBase64.address}`)
+    console.log(`${env.API_LINK}/api/getOperator?address=${addrBase64.address}`)
     req = await fetch(
-      `${API_LINK}/api/getOperator?address=${addrBase64.address}`
+      `${env.API_LINK}/api/getOperator?address=${addrBase64.address}`
     );
     const operator = await req.json();
       console.log(operator)
@@ -86,7 +86,7 @@ const Main = () => {
 
   async function removeStakeButton() {
     let req = await fetch(
-      `${API_LINK}/api/removeStake?address=${localStorage.getItem(
+      `${env.API_LINK}/api/removeStake?address=${localStorage.getItem(
         "address"
       )}`
     );
@@ -111,7 +111,7 @@ const Main = () => {
 
   async function withdrawStakeButton() {
     let req = await fetch(
-      `${API_LINK}/api/withdraw?address=${localStorage.getItem(
+      `${env.API_LINK}/api/withdraw?address=${localStorage.getItem(
         "address"
       )}`
     );
@@ -136,7 +136,7 @@ const Main = () => {
 
   async function pauseButton() {
     let req = await fetch(
-      `${API_LINK}/api/pause?address=${localStorage.getItem(
+      `${env.API_LINK}/api/pause?address=${localStorage.getItem(
         "address"
       )}`
     );
@@ -161,7 +161,7 @@ const Main = () => {
 
   async function cancelPauseButton() {
     let req = await fetch(
-      `${API_LINK}/api/cancelPause?address=${localStorage.getItem(
+      `${env.API_LINK}/api/cancelPause?address=${localStorage.getItem(
         "address"
       )}`
     );

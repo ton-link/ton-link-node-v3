@@ -5,10 +5,9 @@ import Box from "../components/Box/Box";
 import Title from "../components/Title/Title";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
-
+import env from "react-dotenv";
 import logo from "../assets/img/logo.png";
 import QRCode from "react-qr-code";
-import { STAKE_AMOUNT, API_LINK } from "../const";
 
 const AddStake = () => {
   const navigate = useNavigate();
@@ -38,14 +37,14 @@ const AddStake = () => {
               color={"dark"}
               onClick={async () => {
                 let req = await fetch(
-                  `${API_LINK}/api/stake?amount=30&address=${localStorage.getItem(
+                  `${env.API_LINK}/api/stake?amount=30&address=${localStorage.getItem(
                     "address"
                   )}`
                 );
-                console.log(Number(STAKE_AMOUNT) * Math.pow(10, 9))
+                console.log(Number(env.STAKE_AMOUNT) * Math.pow(10, 9))
                 const res = await req.json();
                 setPayData({
-                  link: `ton://transfer/${res.wallet}?bin=${res.boc}&amount=${Number(STAKE_AMOUNT) * Math.pow(10, 9)
+                  link: `ton://transfer/${res.wallet}?bin=${res.boc}&amount=${Number(env.STAKE_AMOUNT) * Math.pow(10, 9)
                   }`,
                 });
                 setPage("payStake");

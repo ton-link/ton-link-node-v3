@@ -8,7 +8,7 @@ import Input from "../components/Input/Input";
 import {STAKE_AMOUNT, ORACLE_ADDRESS} from "../const";
 import logo from "../assets/img/logo.png";
 import QRCode from "react-qr-code";
-import { API_LINK } from "../const";
+import env from "react-dotenv";
 
 const Stake = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Stake = () => {
   useMemo(() => {
     async function calculateQr() {
       let req = await fetch(
-        `${API_LINK}/api/stake?amount=30&address=${localStorage.getItem(
+        `${env.API_LINK}/api/stake?amount=30&address=${localStorage.getItem(
           "address"
         )}`
       );
@@ -38,7 +38,7 @@ const Stake = () => {
   useEffect(() => {
     async function fetchData() {
       let req = await fetch(
-        `${API_LINK}/api/getOperator?address=${localStorage.getItem(
+        `${env.API_LINK}/api/getOperator?address=${localStorage.getItem(
           "address"
         )}`
       );

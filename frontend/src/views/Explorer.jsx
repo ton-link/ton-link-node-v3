@@ -9,7 +9,7 @@ import search from "../assets/img/search.svg";
 import Badge from "../components/Badge/Badge";
 import Text from "../components/Text/Text";
 import Input from "../components/Input/Input";
-import { API_LINK } from "../const";
+import env from "react-dotenv";
 
 const Explorer = () => {
   const [id, setId] = useState("");
@@ -30,7 +30,7 @@ const Explorer = () => {
   const getData = async () => {
     setData({});
     const req = await fetch(
-      `${API_LINK}/api/getJobById?jobId=${id}`
+      `${env.API_LINK}/api/getJobById?jobId=${id}`
     );
     const res = await req.json();
 

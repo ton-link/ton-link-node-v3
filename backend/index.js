@@ -13,14 +13,16 @@ const BOC = ton3.BOC;
 const Coins = ton3.Coins;
 
 const app = express();
-const tonweb = new TonWeb(
-  new TonWeb.HttpProvider('https://testnet.toncenter.com/api/v2/jsonRPC', {apiKey: (process.env).API_KEY})
-);
+const tonweb = new TonWeb(new TonWeb.HttpProvider((process.env).TON_API_URL, { apiKey: (process.env).TONCENTERKEY }));
 const connector = new TonhubConnector({
   testnet: false,
 });
 
 const ORACLE_ADDRESS = (process.env).ORACLE_ADDRESS;
+
+console.log((process.env).TON_API_URL);
+console.log((process.env).TONCENTERKEY);
+console.log((process.env).ORACLE_ADDRESS);
 
 let cache = {};
 
@@ -289,5 +291,6 @@ app.get("/api/checkAuth", async (req, res) => {
   }
 });
 
+console.log("ton-link-backend start")
 const server = http.createServer(app);
 server.listen(process.env.PORT || 80);

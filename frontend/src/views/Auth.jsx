@@ -7,11 +7,10 @@ import { isWalletInfoInjected } from "@tonconnect/sdk";
 import Box from "../components/Box/Box";
 import Title from "../components/Title/Title";
 import Button from "../components/Button/Button";
-
+import env from "react-dotenv";
 import logo from "../assets/img/logo.png";
 import tonkeeper from "../assets/img/tonkeeper.svg";
 import tonhub from "../assets/img/tonhub.svg";
-import { API_LINK } from "../const";
 const Auth = () => {
   const navigate = useNavigate();
 
@@ -28,7 +27,7 @@ const Auth = () => {
   useEffect(() => {
     async function checkAuth() {
       const req = await fetch(
-        `${API_LINK}/api/checkAuth?uuid=${uid}`
+        `${env.API_LINK}/api/checkAuth?uuid=${uid}`
       );
       const res = await req.json();
 
@@ -47,7 +46,7 @@ const Auth = () => {
 
   const connectTonhub = async () => {
     const req = await fetch(
-      `${API_LINK}/api/connectTonhub?uuid=${uid}`
+      `${env.API_LINK}/api/connectTonhub?uuid=${uid}`
     );
     const res = await req.json();
 

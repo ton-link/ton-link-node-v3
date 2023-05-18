@@ -58,7 +58,7 @@ function sleep(ms) {
 
 async function getLastJobId(tonweb) {
         try {
-                const result = await tonweb.provider.call2((process.env).ORACLEADDRESS, 'get_last_job');
+                const result = await tonweb.provider.call2((process.env).ORACLE_ADDRESS, 'get_last_job');
                 return result.toNumber();
         } catch (error) {
                 return undefined;
@@ -66,7 +66,7 @@ async function getLastJobId(tonweb) {
 }
 
 async function getJobById(tonweb, jobID) {
-        const result = await tonweb.provider.call2((process.env).ORACLEADDRESS, 'get_job_by_jobid', [['num', jobID]]);
+        const result = await tonweb.provider.call2((process.env).ORACLE_ADDRESS, 'get_job_by_jobid', [['num', jobID]]);
         console.log(clc.blue('ton-link-node-' + network), clc.green('[INFO]'), `[${await getTime()}]`, 'Get job by jobID', `JobID=${jobID}`);
         return result;
 }
@@ -163,7 +163,7 @@ async function getInfoAboutProvider(tonweb, addsess) {
         cell.bits.writeAddress(new TonWeb.utils.Address(addsess));
         var result;
         try {
-                result = await tonweb.provider.call2((process.env).ORACLEADDRESS, 'get_info_about_provider', [['tvm.Slice', TonWeb.utils.bytesToBase64(await cell.toBoc(false))]]);
+                result = await tonweb.provider.call2((process.env).ORACLE_ADDRESS, 'get_info_about_provider', [['tvm.Slice', TonWeb.utils.bytesToBase64(await cell.toBoc(false))]]);
         } catch (error) {
                 console.log(clc.blue('ton-link-node-' + network), clc.red('[ERROR]'), `[${await getTime()}]`, 'Info about provider =', clc.red(error));
                 return false;
@@ -194,7 +194,7 @@ async function send(wallet, body, keyPair) {
         const seqno = (await wallet.methods.seqno().call()) || 0;
         await wallet.methods.transfer({
                 secretKey: keyPair.secretKey,
-                toAddress: (process.env).ORACLEADDRESS,
+                toAddress: (process.env).ORACLE_ADDRESS,
                 amount: TonWeb.utils.toNano("0.05"),
                 seqno: seqno,
                 payload: body,
@@ -302,9 +302,9 @@ async function main() {
         console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Starting ton-link node...');
         console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Connect to TONCENTER =', clc.green((await tonweb.provider.getWalletInfo(walletAddress.toString(true, true, true))).account_state));
         console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Usint wallet =', clc.green(walletAddress.toString(true, true, true)));
-        console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Using ton-link oracle =', clc.green((process.env).ORACLEADDRESS));
+        console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Using ton-link oracle =', clc.green((process.env).ORACLE_ADDRESS));
         await sleep(1000)
-        console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Check ton-link oracle =', clc.green((await tonweb.provider.getWalletInfo((process.env).ORACLEADDRESS)).account_state));
+        console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, 'Check ton-link oracle =', clc.green((await tonweb.provider.getWalletInfo((process.env).ORACLE_ADDRESS)).account_state));
         if (await getInfoAboutProvider(tonweb, walletAddress.toString(true, true, true)) == false) { process.emit('SIGINT'); }
         console.log(clc.blue('ton-link-node-' + net), clc.yellow('[CONFIGURATION]'), `[${await getTime()}]`, clc.green('Configuration complete'));
         while (1) {
