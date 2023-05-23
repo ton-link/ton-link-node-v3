@@ -1,0 +1,36 @@
+.Title__1 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 40px;
+  
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .Title__2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+  
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .Title__3 {
+      font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+  
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  

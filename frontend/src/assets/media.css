@@ -1,0 +1,36 @@
+@media (min-width: 320px) and (max-width: 480px) {
+  header {
+    display: block !important;
+    justify-content: left !important;
+    align-items: left !important;
+    margin: 12px 24px !important;
+    margin-bottom: 24px !important;
+  }
+  .Box {
+    min-width: 90%;
+    max-width: 90%;
+  }
+
+  .content {
+    padding: 12px 24px !important;
+    display: block !important;
+  }
+
+  .content .left {
+    width: 100% !important;
+  }
+
+  .content .right {
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 24px !important;
+  }
+
+  header .user {
+    margin-top: 12px !important;
+  }
+
+  .explorer {
+    margin: 12px 24px !important;
+  }
+}

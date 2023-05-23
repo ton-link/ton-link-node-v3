@@ -1,5 +1,24 @@
 version: "1.0"
 services:
+  frontend:
+    image: node:latest
+    container_name: ton-link-frontend
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    command: npm run start
+
+  backend:
+    image: node:latest
+    container_name: ton-link-backend
+    build:
+      context: backend  
+    ports:
+      - "80:80"
+    command: node /root/back/index.js
   node:
     image: node:latest
     container_name: ton-link-node
@@ -7,13 +26,6 @@ services:
       context: client
     depends_on:
       - postgres
-  apache:
-    image: httpd:latest
-    container_name: ton-link-dashboard
-    ports:
-      - '8080:80'
-    volumes:
-      - ./dashboard:/usr/local/apache2/htdocs
   postgres:
     image: postgres:latest
     container_name: ton-link-database

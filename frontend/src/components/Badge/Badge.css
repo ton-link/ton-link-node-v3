@@ -1,0 +1,18 @@
+.Badge {
+    padding: 4px 8px;
+    border-radius: 20px;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  
+    letter-spacing: -0.01em;
+  }
+  
+  .Badge__success {
+    color: #2f9461;
+    background: #d9f9e6;
+  }
+  
